@@ -1,0 +1,19 @@
+.home {
+  background-image: url('../../assets/LandingPageFoto.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh; /* Establece una altura mínima del 100% de la ventana */
+}
+
+.container {
+  width: 100%;
+  max-width: 500px; /* Ajusta el ancho máximo según tus necesidades */
+  margin: 0 auto; /* Centra horizontalmente el contenedor */
+  padding: 20px; /* Agrega un espacio interno si es necesario */
+  display: flex;
+  flex-wrap: wrap; /* Permite que las cards se envuelvan en múltiples filas */
+  justify-content: center;
+  align-items: flex-start; /* Alinea las cards en la parte superior */
+}

@@ -1,0 +1,25 @@
+.paging {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 1rem;
+  border-radius: 50%;
+}
+
+.paging-item {
+  background-color: #248b8b;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.currentPage {
+  background-color: #ffffff;
+  font-weight: bold;
+}
+
+

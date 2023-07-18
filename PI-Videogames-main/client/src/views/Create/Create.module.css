@@ -1,0 +1,143 @@
+.container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+}
+
+.create {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+}
+
+.title {
+  margin-bottom: 1rem;
+  padding: .5rem;
+  background-color: rgba(0, 0, 0, 0.541);
+  border-radius: 40px;
+}
+
+.full-screen-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: url("../../assets/LandingPageFoto.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.form {
+    display: flex;
+    font-size: 1.5rem;
+    color: rgb(255, 255, 255);
+    font-family: sans-serif;
+    font-style: normal;
+    background-color: rgba(9, 16, 70, 0.7);
+    width: fit-content;
+    margin: 100px auto;
+    padding: 30px;
+    border-radius: 25px;
+    justify-content: center;
+}
+
+.form input {
+  margin-bottom: 1rem;
+}
+
+.inputs {
+  border-radius: 15px;
+  border-color: #ffffff;
+}
+
+.genrescontainer {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 5px
+
+}
+
+.platforms {
+  
+  border-radius: 25px;
+  border: none;
+  border-width: 5px 5px 5px 5px;
+  margin: 20px auto;
+  width: 250px;
+  height: 70px;
+
+}
+
+.button {
+  z-index: 2;
+  position: absolute;
+  left: 47%;
+  top: 20px;
+  cursor: pointer;
+  background: rgb(251, 18, 18);
+  border-radius: 40px;
+  border: 2px solid #fff;
+  padding: 10px 30px; 
+  color: #fff;
+  font-size: 1rem;
+  font-family: 'Pretendo', sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  letter-spacing: 1px;
+}
+
+
+
+.createbutton {
+  position: relative;
+  background-color: rgb(230, 34, 77);
+  border-radius: 5px;
+  box-shadow: rgb(121, 18, 55) 0px 4px 0px 0px;
+  padding: 15px;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  width: 154px;
+  height: 49px;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  transition: all .3s ease-in-out;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.button.createbutton::before {
+  content: "";
+  background-color: rgba(248, 50, 93, 0);
+  width: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: width 700ms ease-in-out;
+  display: flex;
+}
+
+.button.createbutton:hover::before {
+  width: 100%;
+}
+  
+
+.error {
+  position: absolute;
+  font-weight: bold;
+  font-size: 1rem;
+  color: rgb(243, 26, 26);
+  -webkit-text-stroke: 0.2px rgb(0, 0, 0);
+  margin-left: 10px;
+  letter-spacing: 1px;
+}

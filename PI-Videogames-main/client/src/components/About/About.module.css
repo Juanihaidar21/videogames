@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.about {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Agregado */
+  flex-direction: column; /* Agregado */
+  min-width: 300px;
+  width: 100vw; /* Modificado */
+  height: 100vh; /* Ajustado para ocupar toda la altura */
+  background-color: rgb(46, 126, 155);
+  font-family: 'Comic sans';
+  letter-spacing: .5rem;
+  font-size: 1.5rem;
+  overflow-x: hidden;
+  background-image: url('../../assets/LandingPageFoto.jpg');
+  background-repeat: no-repeat;
+  background-size: cover; /* Modificado */
+  background-position: center; /* Modificado */
+  background-attachment: fixed;
+}
+
+.card {
+  padding: 2rem;
+  background-color: #0000007d;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.076);
+  margin-bottom: 2rem;
+  text-align: center; /* Agregado */
+}
+
+.button {
+  cursor: pointer;
+  width: 20vw;
+  max-width: 300px; /* Agregado */
+  padding: 1rem;
+  border-radius: 1rem;
+  border: none;
+  font-size: 1.5rem;
+  font-family: 'Among';
+  font-weight: bold;
+  letter-spacing: 1rem;
+}
+
+.title {
+  padding: 1rem;
+  background-color: #09065700;
+  border-radius: 10px;
+  color: white;
+}
+
+.subtitle {
+  background-color: #09065700;
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.img {
+  width: 25vw; /* Modificado */
+  
+  border-radius: 40px;
+  transition: all 400ms ease;
+}
+
+.img:hover {
+  transform: scale(1.05);
+  transition-duration: .4s;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+
