@@ -36,6 +36,7 @@ const Create = () => {
     "PS1",
   ];
 
+  const [ratingValue, setRatingValue] = useState(0);
   const genres = useSelector((state) => state.genres);
   const dispatch = useDispatch();
 
@@ -63,19 +64,19 @@ const Create = () => {
     description: "",
     released: "",
     rating: 0,
-    genres: [],
-    platforms: [],
+    genres: "",
+    platforms: "",
   });
 
   // Validaciones
 
   const validate = (data) => {
     const errors = {};
-  
+
     const isEmpty = (value) => {
       return value.trim() === "";
     };
-  
+
     const errorMessages = {
       name: {
         required: "Name is required",
@@ -92,7 +93,7 @@ const Create = () => {
         required: "Rating up to 0 is required",
       },
       released: {
-        required: "Released data is required",
+        required: "Released date is required",
       },
       genres: {
         required: "At least one genre is required",
@@ -102,46 +103,46 @@ const Create = () => {
       },
       generic: "Invalid field",
     };
-  
+
     // Validate name
     if (isEmpty(data.name)) {
       errors.name = errorMessages.name.required;
     } else if (data.name.length > 25) {
       errors.name = errorMessages.name.maxLength;
     }
-  
+
     // Validate background_image
     if (isEmpty(data.background_image)) {
       errors.background_image = errorMessages.background_image.required;
     }
-  
+
     // Validate description
     if (isEmpty(data.description)) {
       errors.description = errorMessages.description.required;
     } else if (data.description.length > 280) {
       errors.description = errorMessages.description.maxLength;
     }
-  
+
     // Validate rating
     if (data.rating === 0) {
       errors.rating = errorMessages.rating.required;
     }
-  
+
     // Validate released
     if (isEmpty(data.released)) {
       errors.released = errorMessages.released.required;
     }
-  
+
     // Validate genres
     if (!data.genres.length) {
       errors.genres = errorMessages.genres.required;
     }
-  
+
     // Validate platforms
     if (!data.platforms.length) {
       errors.platforms = errorMessages.platforms.required;
     }
-  
+
     return errors;
   };
 
@@ -198,7 +199,6 @@ const Create = () => {
     );
     setForm({ ...form, platforms: platformsClick });
   };
-  
 
   //Genres
   const genresCheckHandler = (event) => {
@@ -217,6 +217,7 @@ const Create = () => {
   const ratingHandler = (event) => {
     const value = parseFloat(event.target.value);
     setForm({ ...form, rating: value });
+    setRatingValue(value); // Actualiza el valor del rating en tiempo real
   };
 
   return (
@@ -267,21 +268,23 @@ const Create = () => {
               <span className={style.error}>{error.description}</span>
             )}
           </div>
-          <div>
-            <label><b>Rating: </b></label>
-            <input
-              type="range"
-              min="0"
-              max="5"
-              step="0.1"
-              value={form.rating}
-              onChange={ratingHandler}
-              name="rating"
-            />
-            {error.rating && (
-              <span className={style.error}>{error.rating}</span>
-            )}
-          </div>
+          <div className={style.ratingContainer}>
+  <label><b>Rating: </b></label>
+  <input
+    type="range"
+    min="0"
+    max="5"
+    step="0.1"
+    value={form.rating}
+    onChange={ratingHandler}
+    name="rating"
+    className={style.ratingSlider}
+  />
+  <span className={style.ratingValue}>{ratingValue}</span>
+  {error.rating && (
+    <span className={style.error}>{error.rating}</span>
+  )}
+</div>
           <div>
             <label><b>Released Date: </b></label>
             <input
@@ -330,18 +333,18 @@ const Create = () => {
               <span className={style.error}>{error.platforms}</span>
             )}
             <div className={style.platforms}>
-  {form.platforms.map((element, index) => {
-    return (
-      <span
-        className={style.buttonf}
-        key={index}
-        onClick={() => clickPlatformsHandler(element)}
-      >
-        {element}
-      </span>
-    );
-  })}
-</div>
+              {form.platforms.map((element, index) => {
+                return (
+                  <span
+                    className={style.buttonf}
+                    key={index}
+                    onClick={() => clickPlatformsHandler(element)}
+                  >
+                    {element}
+                  </span>
+                );
+              })}
+            </div>
           </div>
           <button className={style.createbutton} type="submit">
             Create

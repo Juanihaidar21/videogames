@@ -1,14 +1,27 @@
-
-
-.button {
-  border-radius: 0px 10px 10px 0px;
-  padding: 6px;
-  border: none;
-  background-color: #ccc;
+.container {
+  display: flex;
+  align-items: center;
 }
 
 .input {
   border-radius: 10px 0px 0px 10px;
   border: none;
-  padding: 6px
+  padding: 6px;
+  border: 1px solid #ccc;
+}
+
+.alert {
+  border: 1px solid red;
+}
+
+.button {
+  border-radius: 0px 10px 10px 0px;
+  padding: 6.1px;
+  border: none;
+  background-color: #ccc;
+}
+
+.errorMessage {
+  color: red;
+  margin-top: 5px;
 }

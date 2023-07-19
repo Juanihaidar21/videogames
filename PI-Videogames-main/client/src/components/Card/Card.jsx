@@ -10,8 +10,9 @@ const Card = ({ name, genres, background_image, id, rating }) => {
         </div>
         <div className={style.details}>
           <div className={style.box}>
+            <h2 className={style.rating}>{rating}</h2>
             <h2 className={style.name}>{name}</h2>
-            <div className={style["ver-mas"]}>VER MAS</div> {/* Nuevo elemento para "Ver más" */}
+            <div className={style["ver-mas"]}>VER MAS</div> 
           </div>
         </div>
       </div>

@@ -38,14 +38,11 @@ const Detail = () => {
               <p>Platforms: {detail.platforms.join(", ")}</p>
               <p>Release Date: {detail.released}</p>
               <p>Rating: {detail.rating}</p>
-              <p>Platforms: {detail.platforms && detail.platforms.join(", ")}</p>
+              <p>Genres: {detail.genres ? detail.genres.join(", ") : "No genres available"}</p>
               <p>Description: {detail.description.replace(/<[^>]+>/g, "")}</p>
               {detail.createdVideoGame === true ? (
                 <Link to="/home">
-                  <button
-                    className={style.buttonDelete}
-                    onClick={handleDelete}
-                  >
+                  <button className={style.buttonDelete} onClick={handleDelete}>
                     DELETE
                   </button>
                 </Link>
@@ -65,4 +62,3 @@ const Detail = () => {
 };
 
 export default Detail;
-

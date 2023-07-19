@@ -1,13 +1,16 @@
+import React, { useState } from "react";
 import styles from "./Paging.module.css";
 
-export const Paging = ({
+const Paging = ({
   videogamesPerPages,
   videogames,
   paging,
   next,
   prev,
-  currentPage,
+  currentPage: initialPage, // Renombramos a 'initialPage'
 }) => {
+  const [currentPage, setCurrentPage] = useState(initialPage); // Estado local para currentPage
+
   const numberPage = [];
 
   for (let i = 0; i <= Math.floor(videogames / videogamesPerPages); i++) {
@@ -29,7 +32,10 @@ export const Paging = ({
           numberPage.map((number) => (
             <div className={styles.pagingItem} key={number}>
               <button
-                onClick={() => paging(number)}
+                onClick={() => {
+                  setCurrentPage(number); 
+                  paging(number); 
+                }}
                 className={`${styles.prueba} ${
                   currentPage === number ? styles.currentPage : ""
                 }`}
@@ -52,4 +58,3 @@ export const Paging = ({
 };
 
 export default Paging;
-

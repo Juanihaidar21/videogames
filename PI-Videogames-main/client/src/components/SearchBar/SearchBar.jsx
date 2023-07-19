@@ -5,16 +5,21 @@ import { searchByName } from "../../redux/actions";
 
 const SearchBar = () => {
   const [game, setGame] = useState("");
+  const [showAlert, setShowAlert] = useState(false);
   const dispatch = useDispatch();
 
   const handleChange = (event) => {
-    setGame(event.target.value);
+    const inputValue = event.target.value;
+    setGame(inputValue);
+    setShowAlert(/[!#"$%&/()=?¡]/.test(inputValue));
   };
 
   const dispatchGame = (event) => {
     event.preventDefault();
-    dispatch(searchByName(game));
-    setGame('');
+    if (!showAlert) {
+      dispatch(searchByName(game));
+      setGame("");
+    }
   };
 
   return (
@@ -25,14 +30,16 @@ const SearchBar = () => {
           placeholder="Name videogame"
           onChange={handleChange}
           value={game}
-          className={style.input}
+          className={showAlert ? `${style.input} ${style.alert}` : style.input}
         />
         <button
           className={style.button}
-          onClick={(event) => dispatchGame(event)}
+          onClick={dispatchGame}
+          disabled={showAlert}
         >
-          SEARCH
+          {showAlert ? "🔎" : "🔎"}
         </button>
+        {showAlert && <p className={style.errorMessage}>Invalid character</p>}
       </form>
     </div>
   );
